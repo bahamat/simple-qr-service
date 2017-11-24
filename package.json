@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "qr-image": "^3.1.0",
+    "restify": "^4.0.3"
+  }
+}
