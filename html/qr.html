@@ -7,14 +7,14 @@
         document.getElementById('label').innerHTML=v;
     }
 </script>
-<body onLoad="changeImage('Hello')" >>
-<div style="text-align: center">
-<form action="javascript:changeImage(this)">
-<input id="i_text" name="text" type="i_text" value="Hello"/>
-<input name="bttn" type="button" value="Generate" onclick="changeImage(this.form)" />
-</form>
-<p id="label">Hello</p>
-<img id="qr" src="#">
-</div>
+<body onLoad="document.qrForm.submit()" >
+    <div style="text-align: center">
+        <form name="qrForm" action="javascript:changeImage(this)">
+            <input id="i_text" name="text" type="i_text" value="Hello"/>
+            <input name="bttn" type="button" value="Generate" onclick="changeImage(this.form)" />
+        </form>
+    <p id="label">Hello</p>
+    <img id="qr" src="#">
+    </div>
 </body>
 </html>
