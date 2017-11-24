@@ -16,10 +16,12 @@ function respond(req, res, next) {
 
 var server = restify.createServer();
 
+// server.use(restify.plugins.serveStatic());
+
 server.get({path: '/qr/:message', version: '0.0.1'}, respond);
 server.head({path: '/qr/:message', version: '0.0.1'}, respond);
 
-server.get(/\/$/, restify.serveStatic({
+server.get(/\/$/, restify.plugins.serveStatic({
     directory: './html',
     file: 'qr.html'
 }));
