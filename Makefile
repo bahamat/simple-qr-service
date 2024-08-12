@@ -11,7 +11,9 @@ install: smf.xml node_modules
 	svccfg import smf.xml
 
 smf.xml: smf.json node_modules
-	json -f $< -e "this.start.exec=\"${PWD}/server.js\"" | ./node_modules/smfgen/smfgen > $@
+	json -f $< -e "this.start.exec=\"/opt/local/bin/node ${PWD}/server.js\"" \
+	    -e "this.working_directory=\"${PWD}\"" | \
+	    ./node_modules/smfgen/smfgen > $@
 
 node_modules: package.json
 	npm install --progress=false

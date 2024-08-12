@@ -14,13 +14,12 @@ var restify = require('restify'),
     qr = require('qr-image');
 
 function respond(req, res, next) {
-    res.contentType = 'image/png';
+    res.setHeader('Content-Type', 'image/png');
     res.code = 200;
     var qr_png = qr.imageSync(req.params.message, { type: 'png' });
     res.header('Content-Length', qr_png.count);
-    res.header('Content-Disposition', 'attachment; filename=qr.png');
-    res.send(qr_png);
-    console.log('%s %s', res.code, req.url);
+    res.end(qr_png);
+    console.log('%s %s %s', res.code, req.method, req.url);
     return (next);
 }
 
