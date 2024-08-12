@@ -1,0 +1,11 @@
+{
+  "ident": "qr-service",
+  "label": "QR Code generator service",
+  "user": "nobody",
+  "group": "nobody",
+  "timeout": 10,
+  "start": {},
+  "stop": {
+    "timeout": 120
+  }
+}

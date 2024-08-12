@@ -1,5 +1,15 @@
 #!/usr/bin/env node --abort-on-uncaught-exception
 
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+/*
+ * Copyright 2024 Brianna Bennett <brie@zonename.org>
+ */
+
 var restify = require('restify'),
     qr = require('qr-image');
 
@@ -15,8 +25,6 @@ function respond(req, res, next) {
 }
 
 var server = restify.createServer();
-
-// server.use(restify.plugins.serveStatic());
 
 server.get({path: '/qr/:message', version: '0.0.1'}, respond);
 server.head({path: '/qr/:message', version: '0.0.1'}, respond);
