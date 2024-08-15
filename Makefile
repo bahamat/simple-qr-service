@@ -1,3 +1,4 @@
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -11,7 +12,7 @@ install: smf.xml node_modules
 	svccfg import smf.xml
 
 smf.xml: smf.json node_modules
-	json -f $< -e "this.start.exec=\"/opt/local/bin/node ${PWD}/server.js\"" \
+	json -f $< -e "this.start.exec=\"/opt/local/bin/node --abort-on-uncaught-exception ${PWD}/server.js\"" \
 	    -e "this.working_directory=\"${PWD}\"" | \
 	    ./node_modules/smfgen/smfgen > $@
 
